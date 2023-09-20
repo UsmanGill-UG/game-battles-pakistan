@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mx-auto text-center">Add Game</h2>
+<form id="gameForm"  action="{% url 'games:game_create' %}"  method="POST" enctype="multipart/form-data" class="mx-auto text-center">
+  {% csrf_token %}
+  <div id="formsContainer">
+    <div class="form-group" id="game-form">
+      <input type="text" name="name0" class="mt-4 form-control" id="game_name" placeholder="Game Name" required >
+      <input type="file" name="image0" class="mt-2 form-control" id="game_image" accept="image/*" required >
+    </div>
+  </div>
+
+  <div class="form-group text-center">
+    <button type="button" id="addGameButton" class="btn btn-secondary mt-3" onclick="addform()">Add Game</button>
+    <button type="submit" id="saveButton" class="btn btn-primary mt-3"> Save </button>
+  </div>
+</form>
+
+<script>
+  var formCount = 1;
+  function addform() {
+    var formsContainer = document.querySelector('#formsContainer');
+    var gameForm = document.querySelector('#game-form');
+    var newForm = gameForm.cloneNode(true);
+
+    var gameName = newForm.querySelector('#game_name');
+    var gameImage = newForm.querySelector('#game_image');
+
+    gameName.name = 'name' + formCount;
+    gameImage.name = 'image' + formCount;
+
+    gameName.id = 'game_name' + formCount;
+    gameImage.id = 'game_image' + formCount;
+
+    newForm.id = 'game-form' + formCount;
+    formsContainer.appendChild(newForm);
+    formCount++;
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+  <h2 class="text-center text-white" >Teams</h2>
+    {% for team in teams %}
+      <div class="row-md-6 mb-1">
+        <div class="card bg-dark text-white">
+          <div class="card-body">
+              <div class="team-card-layout">
+                <h5 class="mx-auto my-auto">{{ team.name }}</h5>
+                <p class="mx-auto my-auto">Owner: {{ team.owner.username }}</p>
+                <form class="mx-auto my-auto" method="GET" action="{% url 'teams:team_detail' team.id %}">
+                    {% csrf_token %}
+                        <input type="submit" class="btn btn-primary" value="View Team">
+                </form>
+                {% if user not in team.members.all %}
+                    <form class="mx-auto my-auto" method="POST" action="{% url 'teams:join_team' team.id %}">
+                    {% csrf_token %}
+                        <input type="submit" class="btn btn-primary" value="Join Team">
+                    </form>
+                {% else %}
+                    <form class="mx-auto my-auto"  method="POST" action="{% url 'teams:team_leave' team.id %}">
+                        {% csrf_token %}
+                        <input type="submit" class="btn btn-danger" value="Leave Team" />
+                    </form>
+                {% endif %}
+              </div>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <div class="col">
+        <p class="text-white">No teams found.</p>
+      </div>
+    {% endfor %}
+</div>
+{% endblock content %}

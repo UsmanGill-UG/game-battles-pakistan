@@ -1,0 +1,4 @@
+.slide-out-menu.show {
+    max-height: 150px;
+    overflow-y: auto;
+}

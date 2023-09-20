@@ -1,0 +1,48 @@
+.tournament-card-layout {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    align-items: center;
+}
+
+.tournament-image {
+    width: 70px;
+    height: 70px;
+}
+
+.slide-out-menu.show {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.card-owner {
+    font-size: 12px;
+}
+
+.game-image {
+    height: 100px;
+    height: 100px;
+}
+
+@media screen and (max-width: 768px) {
+    .btn {
+        font-size: 12px;
+    }
+
+    h5 {
+        font-size: 12px;
+    }
+
+    p {
+        font-size: 10px;
+    }
+
+    .tournament-image {
+        width: 40px;
+        height: 40px;
+    }
+
+    .game-image {
+        width: 60px;
+        height: 60px;
+    }
+}

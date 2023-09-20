@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5 d-flex justify-content-center">
+    <div class="card bg-dark text-white card-custom-size">
+        <div class="card-header text-center">
+            <h3>{{ team.name }}</h3>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title text-center">Owner</h5>
+            <p class="card-text text-center">{{ team.owner.username }}</p>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title text-center">Members</h5>
+            <ul class="list-group list-group-flush">
+                {% for member in team.members.all %}
+                <li class="list-group-item bg-secondary text-white">{{ member.username }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="card-body text-center">
+            {% if user not in team.members.all %}
+            <form method="POST" action="{% url 'teams:join_team' team.id %}">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-primary" value="Join Team">
+            </form>
+            {% else %}
+            <a href="{% url 'teams:team_leave' team.id %}" class="btn btn-danger">Leave Team</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

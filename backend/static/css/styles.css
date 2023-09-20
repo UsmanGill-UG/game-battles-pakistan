@@ -1,0 +1,96 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #0A0E17;
+    color: white;
+    font-family: 'Roboto', sans-serif  !important;
+}
+
+footer {
+    margin-top: auto;
+}
+
+.bg-dark {
+    background-color: #1E222A !important;
+}
+
+.navbar{
+  background-color: #232A33 !important;
+}
+
+.navbar-logo{
+    width: 50px;
+    height: 50px;
+}
+
+.dropdown-menu {
+    background-color: rgb(27,23,28);
+    box-shadow: white;
+    border: 1px solid rgb(85,32,40);
+    border-radius: 0px;
+}
+
+.dropdown-item {
+    color: white;
+}
+
+.dropdown-item:hover {
+    text-decoration: underline;
+    background-color: white;
+    color: black;
+ }
+
+/*
+By default the drop down is hidden
+When the user hovers over the nav-item, the display is set to block, which makes the drop down visible.
+*/
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.card{
+    background: #1B2128;
+    /*transition: all ease 0.2s;*/
+    border-radius: 8px;
+}
+
+.card:hover {
+    box-shadow: 0 0 40px rgb(85,32,40);
+}
+
+.card-custom-size{
+    width: 25rem;
+}
+/* Create Game Page */
+
+
+/* Game List Page */
+.game-card-layout{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+#game-card{
+    margin-top:50px;
+    width:200px;
+    height:250px;
+    border: transparent;
+}
+
+/* Tournament List Page */
+.tournament-card-layout{
+    display: grid;
+    grid-template-columns: 30% 15% 15% 20% 20%;
+}
+
+.tournament-image{
+    width: 70px;
+    height: 70px;
+}
+
+/* Team List Page */
+.team-card-layout{
+    display: grid;
+    grid-template-columns: 30% 30% 20% 20%
+}

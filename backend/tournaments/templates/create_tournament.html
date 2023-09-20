@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Create Tournament
+{% endblock title %}
+
+{% block content %}
+<div class="container py-5 d-flex justify-content-center">
+    <div class="card bg-dark text-white card-custom-size">
+        <div class="card-header text-center">
+            <h3>Create Tournament</h3>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Tournament Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                     <label for="{{ form.game.id_for_label }}">Tournament Name:</label>
+                    <select id="game" name="game" class="form-control">
+                        <option value="">Select Your Team</option>
+                        {% for game in games %}
+                            <option value="{{ game.id }}">{{ game.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="prize">Prize:</label>
+                    <input type="text" id="prize" name="prize" class="form-control" required>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary mt-3">Create Tournament</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

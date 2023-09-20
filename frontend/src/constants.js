@@ -1,0 +1,10 @@
+export const BASE_URL = 'http://localhost:8000/'
+export const API_URL = `${ BASE_URL }api/`
+export const EMPTY_GAME = { name: '', image_path: null }
+export const SUCCEEDED = 'succeeded'
+export const FAILED = 'failed'
+export const LOADING = 'loading'
+export const ERROR = 'error'
+export const SUCCESS = 'success'
+export const WARNING = 'warning'
+export const INFO = 'info'

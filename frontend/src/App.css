@@ -1,0 +1,65 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #0A0E17;
+    color: #BECDE3;
+    font-family: 'Roboto', sans-serif  !important;
+}
+
+footer {
+    margin-top: auto;
+}
+
+.bg-dark {
+    background-color: #1E222A !important;
+}
+
+/*
+By default the drop down is hidden
+When the user hovers over the nav-item, the display is set to block, which makes the drop down visible.
+*/
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.card{
+    background: #1B2128;
+    transition: all ease 0.2s;
+    border-radius: 8px;
+    color: #BECDE3;
+}
+
+.card-body{
+    padding: 0.5rem;
+}
+
+.card-custom-size{
+    width: 25rem;
+}
+
+.slide-out-menu {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background-color: #333;
+    color: white;
+}
+  
+.slide-out-menu.show {
+    max-height: 200px; 
+}
+
+.join-button{
+    width: 140px;
+    border-radius: 100px;
+    background-color: #1E7292;
+    border: 2px solid #38BDF9;
+    font-weight: bold;
+    color: white !important;
+}
+
+.join-button:hover{
+    background-color: #38BDF9;
+}

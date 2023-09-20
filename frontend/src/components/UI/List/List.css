@@ -1,0 +1,9 @@
+.rotatate-arrow-default-pos {
+    transform: rotate(0deg);
+    transition: transform 0.5s ease-in-out;
+}
+
+.rotate-180 {
+    transform: rotate(180deg);
+    transition: transform 0.5s ease-in-out;
+}

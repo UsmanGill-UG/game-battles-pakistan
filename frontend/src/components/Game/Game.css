@@ -1,0 +1,32 @@
+.game-card-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+#game-card {
+    margin-top: 50px;
+    width: 100%;
+    border: transparent;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+}
+
+.disabled-input {
+    background-color: red !important; 
+}
+
+@media only screen and (max-width: 600px) {
+    #game-card {
+        height: 120px;
+        width: 100px;
+    }
+    
+    .card-img-top {
+        height: 120px;
+        width: 100px;
+    }
+}

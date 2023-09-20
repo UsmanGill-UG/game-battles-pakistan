@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+  <h2 class="text-center text-white" >Tournaments</h2>
+    {% for tournament in tournaments %}
+      <div class="row-md-6 mb-1">
+        <div class="card bg-dark text-white">
+          <div class="card-body">
+              <div class="tournament-card-layout">
+                <h5 class="mx-auto my-auto"> {{ tournament.name }} </h5>
+                <image class="tournament-image" src="{{ tournament.game.image.url }}"></image>
+                <p class="mx-auto my-auto">{{ tournament.game.name }}</p>
+                <p class="mx-auto my-auto">{{ tournament.prize }}</p>
+                <form class="mx-auto my-auto" method="GET" action="{% url 'tournaments:tournament_detail' tournament.id %}">
+                    {% csrf_token %}
+                        <input type="submit" class="btn btn-primary" value="View Tournament">
+                </form>
+              </div>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <div class="col">
+        <p class="text-white">No tournaments found.</p>
+      </div>
+    {% endfor %}
+</div>
+{% endblock content %}

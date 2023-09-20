@@ -1,0 +1,28 @@
+.navbar {
+    position: sticky !important;
+    top: 0 !important;
+    background-color: #232A33 !important;
+    font-weight: bold !important;
+}
+
+.navbar-logo {
+    width: 50px;
+    height: 50px;
+}
+
+.navbar-menu {
+    background-color: rgb(27, 23, 28) !important;
+    box-shadow: white !important;
+    border: 1px solid rgb(85, 32, 40) !important;
+    border-radius: 0px !important;
+}
+
+.navbar-dropdown-item {
+    color: white !important;
+}
+
+.navbar-dropdown-item:hover {
+    text-decoration: underline !important;
+    background-color: white !important;
+    color: black !important;
+}

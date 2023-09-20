@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5 d-flex justify-content-center">
+    <div class="card bg-dark text-white card-custom-size">
+        <div class="card-header text-center">
+            <h1>{{ user.username }}</h1>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title text-center">Owned</h2>
+            <ul class="list-group list-group-flush">
+                {% for team in created_teams %}
+                    <li class="list-group-item bg-secondary text-white">{{ team.name }}</li>
+                {% empty %}
+                    <li class="list-group-item bg-secondary text-white">No teams owned.</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title text-center">Member</h2>
+            <ul class="list-group list-group-flush">
+                {% for team in teams_joined %}
+                    <li class="list-group-item bg-secondary text-white">{{ team.name }}</li>
+                {% empty %}
+                    <li class="list-group-item bg-secondary text-white">No teams joined.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+  <h2 class="text-center" >Games: {{ total_games }}</h2>
+  <div class="game-card-layout">
+    {% for game in games %}
+      <div id="game-card" class="card">
+        <img class="card-img-top" src="{{ game.image.url }}" alt="{{ game.name }}">
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

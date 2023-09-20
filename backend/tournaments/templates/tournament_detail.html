@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5 d-flex justify-content-center">
+    <div class="card bg-dark text-white card-custom-size">
+        <div class="card-header text-center">
+            <h2>{{ tournament.name }}</h2>
+        </div>
+        <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-white">Owner: {{ tournament.owner.username }}</h6>
+            <h6 class="card-subtitle mb-2 text-white">Game Name: {{ tournament.game_name }}</h6>
+            <h6 class="card-subtitle mb-2 text-white">Prize: {{ tournament.prize }}</h6>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title text-center">Registered Teams</h5>
+            <ul class="list-group list-group-flush">
+                {% for team in tournament.teams_registered.all %}
+                    <li class="list-group-item bg-secondary text-white">{{ team.name }} ({{ team.owner.username }})</li>
+                {% empty %}
+                    <li class="list-group-item bg-secondary text-white">No teams registered yet.</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title text-center">Register for Tournament</h5>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <select id="team" name="team_id" class="form-control" required>
+                        <option value="">Select Your Team</option>
+                        {% for team in user_teams %}
+                            <option value="{{ team.id }}">{{ team.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <br>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
